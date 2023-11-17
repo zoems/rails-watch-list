@@ -1,3 +1,44 @@
 <p style="color: green"><%= notice %></p>
 <h1> <%=@list.name%> </h1>
-  <p><%= link_to "All Lists", lists_path %></p>
+<br>
+<div class="movie_list">
+ <% @list.bookmarks.each do |bookmark| %>
+  <div>
+    <img src="<%= bookmark.movie.poster_url %>">
+
+    <p>
+      <strong>Title:</strong>
+      <%= bookmark.movie.title %>
+    </p>
+
+    <p>
+      <strong>Description:</strong>
+      <%= bookmark.movie.overview %>
+    </p>
+
+    <p>
+      <strong>Rating:</strong>
+      <%= bookmark.movie.rating %>
+    </p>
+
+    <p>
+      <strong>Comment:</strong>
+      <%= bookmark.comment %>
+    </p>
+
+    <%=link_to "Delete Bookmark", list_bookmark_path(@list.id, bookmark.id), data:{turbo_method: :delete}%>
+
+  </div>
+
+ <%end%>
+  </div>
+
+<div>
+  <%= link_to "Add New Bookmark", new_list_bookmark_path(@list)%> |
+  <%= link_to "All Lists", lists_path %> |
+  <%= link_to "Edit list", edit_list_path(@list) %> |
+  <%= link_to "Delete List", list_path(@list), data:{turbo_method: :delete} %>
+  <%= link_to "Add New Bookmark", new_list_bookmark_path(@list) %>
+</div>
+
+<%# why list path not destroy path %>

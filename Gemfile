@@ -11,6 +11,9 @@ gem "sassc-rails" # Uncomment this line
 gem 'rest-client'
 gem 'json'
 
+gem "cloudinary"
+##### my adds^^
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.2"
 
