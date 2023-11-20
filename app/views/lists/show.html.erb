@@ -1,10 +1,12 @@
 <p style="color: green"><%= notice %></p>
 <h1> <%=@list.name%> </h1>
+<%= cl_image_tag @list.photo.key, height: 300, width: 400, crop: :fill if @list.photo.key? %>
 <br>
 <div class="movie_list">
  <% @list.bookmarks.each do |bookmark| %>
   <div>
     <img src="<%= bookmark.movie.poster_url %>">
+
 
     <p>
       <strong>Title:</strong>
